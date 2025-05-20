@@ -1,0 +1,29 @@
+banco de dados PostgreSQL script:
+
+
+-- Criação do banco 
+CREATE DATABASE agenda_db;
+
+-- Conecte-se ao banco e crie as tabelas:
+\c agenda_db;
+
+-- Tabela de usuários
+CREATE TABLE "Users" (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  role VARCHAR(20) CHECK (role IN ('user', 'attendant', 'admin')) DEFAULT 'user',
+  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabela de agendamentos
+CREATE TABLE "Appointments" (
+  id SERIAL PRIMARY KEY,
+  dateTime TIMESTAMP NOT NULL,
+  status VARCHAR(20) CHECK (status IN ('scheduled', 'cancelled')) DEFAULT 'scheduled',
+  "userId" INTEGER REFERENCES "Users"(id) ON DELETE CASCADE,
+  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

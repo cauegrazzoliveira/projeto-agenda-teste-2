@@ -1,0 +1,23 @@
+// Estrutura de uma aplicação completa de agenda com perfis de acesso (usuário, atendente, admin)
+// Utilizando: Express, Sequelize (ORM), PostgreSQL, JWT, Bcrypt
+
+// === INSTALAÇÕES NECESSÁRIAS ===
+// npm install express sequelize pg pg-hstore bcrypt jsonwebtoken dotenv cors
+
+// === ESTRUTURA DO PROJETO ===
+// - server.js
+// - config/database.js
+// - models/User.js
+// - models/Appointment.js
+// - routes/auth.js
+// - routes/appointments.js
+// - middleware/auth.js
+// - middleware/roles.js
+// - .env
+
+// senha postgreSQL = Projetoagenda
+
+
+
+
+
